@@ -81,5 +81,9 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
 $response = curl_exec($curl);
 
+if (curl_errno($curl)) {
+    echo 'Error: ' . curl_error($curl);
+}
+
 curl_close($curl);
 echo $response;
